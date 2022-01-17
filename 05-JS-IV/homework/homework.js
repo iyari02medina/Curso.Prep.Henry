@@ -9,7 +9,7 @@ function crearGato(nombre, edad) {
   let newObj = {
     nombre: nombre,
     edad: edad,
-    meow: function(){
+    meow : function(){
       return "Meow!";
     }
   }
@@ -22,7 +22,7 @@ function agregarPropiedad(objeto, property) {
   // Devuelve el objeto
   // NOTA: El nombre de la propiedad no es "propiedad", el nombre es el valor del argumento llamado "property" (una cadena/string)
   // Tu código:
-  objeto[property]= null;
+  objeto[property] = null;
   return objeto;
 }
 
@@ -31,15 +31,16 @@ function invocarMetodo(objeto, metodo) {
   // Invoca ese método
   // Nada necesita ser devuelto ("returned")
   // Tu código:
-  objeto[metodo]()
+  objeto[metodo]() //de esta maneta se invoca una funcion
 }
 
 function multiplicarNumeroDesconocidoPorCinco(objetoMisterioso) {
   // "objetoMisterioso" tiene una propiedad llamada "numeroMisterioso"
   // Multiplica el numeroMisterioso por 5 y devuelve el producto
   // Tu código:
-  let numero = objetoMisterioso.numeroMisterioso;
-  return numero * 5;
+  let numero= objetoMisterioso.numeroMisterioso * 5;
+  return numero;
+
 
 }
 
@@ -56,10 +57,10 @@ function nuevoUsuario(nombre, email, password) {
   // Crea un nuevo objeto con las propiedades coincidiendo con los argumentos que se pasan a la función
   // Devuelve el objeto
   // Tu código:
-  let newObj ={
+  let newObj = {
     nombre: nombre,
     email: email,
-    password: password,
+    password: password
   }
   return newObj;
 
@@ -69,11 +70,12 @@ function tieneEmail(usuario) {
   // Devuelve "true" si el usuario tiene un valor definido para la propiedad "email"
   // De lo contratio, devuelve "false"
   // Tu código:
-  if(usuario["email"]== undefined){
+  if(usuario.email == undefined){ // se usa doble "=" porque compara tipos de datos, si comparara el dato exacto usaria el tripe "="
     return false;
-  } else{
+  } else {
     return true;
   }
+
 }
 
 
@@ -83,7 +85,7 @@ function tienePropiedad(objeto, propiedad) {
   // "propiedad" es un string
   // De lo contrario, devuelve "false"
   // Tu código:
-  if(objeto.hasOwnProperty(propiedad)){
+  if(objeto.hasOwnProperty(propiedad)){ //.hasOwnProperty sirve para saber si un objeto tiene la propiedad especificada como una propiedad directa a ese objeto.
     return true;
   } else {
     return false;
@@ -94,12 +96,14 @@ function verificarPassword(usuario, password) {
   // Comprueba si la "password" enviada coincide con la propiedad "password" del objeto "usuario"
   // Devuelve "true" si coinciden
   // De lo contrario, devuelve "false"
-  // // Tu código:
-  if(usuario.password === password){
-    return true;
-  } else {
-    return false;
-  }
+  //  Tu código:
+if(usuario.password === password){
+  return true;
+} else {
+  return false;
+}
+
+
 }
 
 function actualizarPassword(usuario, nuevaPassword) {
@@ -114,9 +118,10 @@ function agregarAmigo(usuario, nuevoAmigo) {
   // "usuario" tiene una propiedad llamada "amigos" que es un array
   // Agrega "nuevoAmigo" al final de ese array
   // Devuelve el objeto "usuario"
-  // // Tu código:
+  //  Tu código:
   usuario.amigos.push(nuevoAmigo);
   return usuario;
+  
 }
 
 function pasarUsuarioAPremium(usuarios) {
@@ -125,7 +130,7 @@ function pasarUsuarioAPremium(usuarios) {
   // Define cada propiedad "esPremium" de cada objeto como "true"
   // Devuelve el array de usuarios
   // Tu código:
-  for(let i=0; i< usuarios.length; i++){
+  for(let i=0; i<usuarios.length; i++){
     usuarios[i].esPremium = true;
   }
   return usuarios;
@@ -140,10 +145,11 @@ function sumarLikesDeUsuario(usuario) {
   // Devuelve la suma
   // Tu código:
   var sumaLikes = 0;
-  for(var i =0; i<usuario.posts.length; i++){
+  for(var i=0; i<usuario.posts.length; i++){
     sumaLikes = sumaLikes + usuario.posts[i].likes;
   }
   return sumaLikes;
+
 }
 
 function agregarMetodoCalculoDescuento(producto) {
@@ -157,9 +163,13 @@ function agregarMetodoCalculoDescuento(producto) {
   // producto.calcularPrecioDescuento() -> 20 - (20 * 0.2)
   // Tu código:
   producto.calcularPrecioDescuento = function(){
-    return this.precio - (this.precio * this.porcentajeDeDescuento);
+    return this.precio - (this.precio * this.porcentajeDeDescuento); //usamos this para acceder a las propiedades de nuestro objeto
   }
   return producto;
+/*   producto.calcularPrecioDescuento = function(){
+    return this.precio - (this.precio * this.porcentajeDeDescuento);
+  }
+  return producto; */
 
 }
 
